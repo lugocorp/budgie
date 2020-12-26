@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="lib/sprite.js"></script>
+  <script src="lib/assets.js"></script>
+  <script src="lib/arcade.js"></script>
+</head>
+<body>
+  <canvas id="canvas" width="500" height="300" onmousemove="arcade._onmousemove(event)" onmouseup="arcade._onclick(event)"></canvas>
+</body>
+<script>
+  let arcade=new Arcade();
+  arcade.assets.register("assets/mario.png");
+  arcade.start();
+</script>
+</html>
