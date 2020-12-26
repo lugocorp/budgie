@@ -13,5 +13,16 @@
   let arcade=new Arcade();
   arcade.assets.register("assets/mario.png");
   arcade.start();
+
+  var mario=new Sprite(0,0);
+  mario.width=100;
+  mario.height=50;
+  mario.render=function(){
+    arcade._ctx.drawImage(arcade.assets.getImage("mario.png"),0,0);
+  }
+  mario.onclick=function(){
+    console.log("You clicked Mario!");
+  }
+  arcade._root.addChild(mario);
 </script>
 </html>
