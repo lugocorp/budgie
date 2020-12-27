@@ -2,11 +2,12 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <script src="lib/keys.js"></script>
   <script src="lib/sprite.js"></script>
   <script src="lib/assets.js"></script>
   <script src="lib/arcade.js"></script>
 </head>
-<body>
+<body onkeyup="arcade._onkeyup(event)" onkeydown="arcade._onkeydown(event)">
   <canvas id="canvas" width="500" height="300" onmousemove="arcade._onmousemove(event)" onmouseup="arcade._onclick(event)"></canvas>
 </body>
 <script>
