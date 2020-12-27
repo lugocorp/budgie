@@ -1,15 +1,9 @@
 {
   "name": "arcade",
   "version": "1.0.0",
-  "description": "A simple HTML5 game engine for simple arcade-style games. Inspired in part by Regular Show's \"Just Set up the Chairs\" episode. Work in progress.",
+  "description": "A simple HTML5 game engine for simple arcade-style games. Brought to you by LugoCorp.",
   "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "author": "Alex Lugo",
   "license": "ISC",
   "dependencies": {
     "mime-types": "^2.1.27",

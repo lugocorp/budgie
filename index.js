@@ -75,9 +75,10 @@ if(cmd=="init"){
   let libs=fs.readdirSync(`${project}/lib`).map(x => `<script src="lib/${x}"></script>`).join("");
   let user=fs.readdirSync(`${project}/src`).map(x => `<script src="src/${x}"></script>`).join("");
   let assets=fs.readdirSync(`${project}/assets`);
-  let images=getAssetsByType(assets,"image").map(x => `arcade.assets._register("assets/${x}");`).join("");
+  let images=getAssetsByType(assets,"image").map(x => `arcade.assets._registerImage("assets/${x}");`).join("");
+  let audios=getAssetsByType(assets,"audio").map(x => `arcade.assets._registerAudio("assets/${x}");`).join("");
   let fonts=getAssetsByType(assets,"font").map(x => `@font-face{font-family:"${getFontName(x)}";src:url("assets/${x}");}`).join("");
-  let html=`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${config.name}</title>${libs}</head><body onkeyup="arcade._onkeyup(event)" onkeydown="arcade._onkeydown(event)" onresize="arcade._onresize()"><canvas id="canvas" width="500" height="300" onmousemove="arcade._onmousemove(event)" onmouseup="arcade._onclick(event)"></canvas></body><style>body{background-color:black;padding:0;margin:0;}canvas{transform:translate(-50%,-50%);background-color:white;position:absolute;left:50%;top:50%;}${fonts}</style><script>let arcade=new Arcade("${key}",${config.latency},${config.aspect});</script>${user}<script>${images}arcade.start();</script></html>`;
+  let html=`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${config.name}</title>${libs}</head><body onkeyup="arcade._onkeyup(event)" onkeydown="arcade._onkeydown(event)" onresize="arcade._onresize()"><canvas id="canvas" width="500" height="300" onmousemove="arcade._onmousemove(event)" onmouseup="arcade._onclick(event)"></canvas></body><style>body{background-color:black;padding:0;margin:0;}canvas{transform:translate(-50%,-50%);background-color:white;position:absolute;left:50%;top:50%;}${fonts}</style><script>let arcade=new Arcade("${key}",${config.latency},${config.aspect});</script>${user}<script>${images}${audios}arcade.start();</script></html>`;
   fs.writeFileSync(`${project}/index.html`,html);
 }else if(cmd=="open"){
   let file=path.resolve(`${project}/index.html`);
