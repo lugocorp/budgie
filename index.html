@@ -8,21 +8,44 @@
   <script src="lib/assets.js"></script>
   <script src="lib/arcade.js"></script>
 </head>
-<body onkeyup="arcade._onkeyup(event)" onkeydown="arcade._onkeydown(event)">
+<body onkeyup="arcade._onkeyup(event)" onkeydown="arcade._onkeydown(event)" onresize="arcade._onresize()">
   <canvas id="canvas" width="500" height="300" onmousemove="arcade._onmousemove(event)" onmouseup="arcade._onclick(event)"></canvas>
 </body>
+<style>
+body{
+  background-color:black;
+  padding:0;
+  margin:0;
+}
+canvas{
+  transform:translate(-50%,-50%);
+  background-color:white;
+  position:absolute;
+  left:50%;
+  top:50%;
+}
+</style>
 <script>
   let arcade=new Arcade();
   arcade.assets.register("assets/mario.png");
   arcade.start();
 
-  var mario=new Sprite(0,0);
+  // User code (arcade.start)
+  var mario=new Sprite();
   mario.render=function(){
+    mario.setDrawStyle(false);
+    mario.setLineWidth(20);
+    mario.setColor(0x00ff00);
+    mario.drawRect(10,10,200,200);
+    mario.setColor(0xffff00);
+    mario.setDrawStyle(true);
+    mario.drawOval(100,100,200,200);
     mario.drawImage("mario.png",0,0);
   }
   mario.onclick=function(){
     console.log("You clicked Mario!");
+    mario.addOffset(50,0);
   }
-  arcade._root.addChild(mario);
+  arcade.addSprite(mario);
 </script>
 </html>
