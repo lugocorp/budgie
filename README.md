@@ -8,11 +8,11 @@ A simple HTML5 game engine for simple arcade-style games. Inspired in part by Re
 - [x] Wrap geometry drawing HTML5 canvas API
 - [x] Extrapolate into a simple CLI
 - [x] Error handling in CLI + tighten experience
-- [ ] Build a font and text rendering system
+- [x] Build a font and text rendering system
 - [ ] Figure out audio assets
-- [ ] Finalize a cool name + branding
 - [ ] Add key code constants in the keys manager
-- [ ] Add to browser-side API as needed
 - [ ] Clean up/standardize browser-side API
+- [ ] Add to browser-side API as needed
+- [ ] Finalize a cool name + branding
 - [ ] Create reference website on separate branch
 - [ ] Launch version 1.0
