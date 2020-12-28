@@ -4,6 +4,7 @@ const open=require("open");
 const fs=require("fs");
 let cmd=process.argv[2];
 let project=".";
+let source=".";
 
 // Throw an error
 function error(msg){
@@ -15,13 +16,27 @@ function error(msg){
 
 // Default files
 function getDefaultConfig(){
-  return "{\n\t\"name\":\"Arcade\",\n\t\"latency\":200,\n\t\"aspect\":1.5\n}\n";
+  return "{\n\t\"name\":\"Arcade\",\n\t\"latency\":200,\n\t\"viewport\":{\n\t\t\"width\":1500,\n\t\t\"height\":1000\n\t}\n}\n";
 }
 function getDefaultIndex(){
   return "// Welcome to Arcade!\n// Brought to you by LugoCorp\n\narcade.onstart=function(){}\n\narcade.onclick=function(){}\n\narcade.onkeyevent=function(evt){}\n\narcade.onframe=function(delta){}\n";
 }
 
 // Build helpers
+function recursiveList(dir){
+  let files=[];
+  let folders=[dir];
+  while(folders.length){
+    dir=folders.splice(0,1)[0];
+    let lst=fs.readdirSync(dir);
+    for(var a=0;a<lst.length;a++){
+      let file=`${dir}/${lst[a]}`;
+      if(fs.statSync(file).isDirectory()) folders.push(file);
+      else files.push(file);
+    }
+  }
+  return files;
+}
 function getKey(name){
   var key="";
   for(var a=0;a<name.length;a++){
@@ -58,9 +73,9 @@ if(cmd=="init"){
 
   // Copy the lib directory
   fs.mkdirSync(`${project}/lib`);
-  let lst=fs.readdirSync("lib");
+  let lst=fs.readdirSync(`${source}/lib`);
   for(var a=0;a<lst.length;a++){
-    fs.copyFileSync(`lib/${lst[a]}`,`${project}/lib/${lst[a]}`);
+    fs.copyFileSync(`${source}/lib/${lst[a]}`,`${project}/lib/${lst[a]}`);
   }
 }else if(cmd=="build"){
   var config;
@@ -72,13 +87,13 @@ if(cmd=="init"){
     error("Missing or invalid arcade.json file");
   }
   let key=getKey(config.name);
-  let libs=fs.readdirSync(`${project}/lib`).map(x => `<script src="lib/${x}"></script>`).join("");
-  let user=fs.readdirSync(`${project}/src`).map(x => `<script src="src/${x}"></script>`).join("");
-  let assets=fs.readdirSync(`${project}/assets`);
+  let assets=recursiveList(`${project}/assets`);
+  let libs=recursiveList(`${project}/lib`).map(x => `<script src="lib/${x}"></script>`).join("");
+  let user=recursiveList(`${project}/src`).map(x => `<script src="src/${x}"></script>`).join("");
   let images=getAssetsByType(assets,"image").map(x => `arcade.assets._registerImage("assets/${x}");`).join("");
   let audios=getAssetsByType(assets,"audio").map(x => `arcade.assets._registerAudio("assets/${x}");`).join("");
   let fonts=getAssetsByType(assets,"font").map(x => `@font-face{font-family:"${getFontName(x)}";src:url("assets/${x}");}`).join("");
-  let html=`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${config.name}</title>${libs}</head><body onkeyup="arcade._onkeyup(event)" onkeydown="arcade._onkeydown(event)" onresize="arcade._onresize()"><canvas id="canvas" width="500" height="300" onmousemove="arcade._onmousemove(event)" onmouseup="arcade._onclick(event)"></canvas></body><style>body{background-color:black;padding:0;margin:0;}canvas{transform:translate(-50%,-50%);background-color:white;position:absolute;left:50%;top:50%;}${fonts}</style><script>let arcade=new Arcade("${key}",${config.latency},${config.aspect});</script>${user}<script>${images}${audios}arcade.start();</script></html>`;
+  let html=`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${config.name}</title>${libs}</head><body onkeyup="arcade._onkeyup(event)" onkeydown="arcade._onkeydown(event)" onresize="arcade._onresize()"><canvas id="canvas" width="500" height="300" onmousemove="arcade._onmousemove(event)" onmouseup="arcade._onclick(event)"></canvas></body><style>body{background-color:black;padding:0;margin:0;}canvas{transform:translate(-50%,-50%);background-color:white;position:absolute;left:50%;top:50%;}${fonts}</style><script>let arcade=new Arcade("${key}",${config.latency},${config.viewport.width},${config.viewport.height});</script>${user}<script>${images}${audios}arcade.assets._check();</script></html>`;
   fs.writeFileSync(`${project}/index.html`,html);
 }else if(cmd=="open"){
   let file=path.resolve(`${project}/index.html`);
