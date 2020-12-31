@@ -16,23 +16,23 @@ function error(msg){
 
 // Default files
 function getDefaultConfig(){
-  return "{\n\t\"name\":\"Arcade\",\n\t\"latency\":200,\n\t\"viewport\":{\n\t\t\"width\":1500,\n\t\t\"height\":1000\n\t}\n}\n";
+  return "{\n\t\"name\":\"Arcade\",\n\t\"latency\":20,\n\t\"viewport\":{\n\t\t\"width\":1500,\n\t\t\"height\":1000\n\t}\n}\n";
 }
 function getDefaultIndex(){
   return "// Welcome to Arcade!\n// Brought to you by LugoCorp\n\narcade.onstart=function(){}\n\narcade.onclick=function(){}\n\narcade.onkeyevent=function(evt){}\n\narcade.onframe=function(delta){}\n";
 }
 
 // Build helpers
-function recursiveList(dir){
+function recursiveList(root){
   let files=[];
-  let folders=[dir];
+  let folders=[root];
   while(folders.length){
-    dir=folders.splice(0,1)[0];
+    let dir=folders.splice(0,1)[0];
     let lst=fs.readdirSync(dir);
     for(var a=0;a<lst.length;a++){
       let file=`${dir}/${lst[a]}`;
       if(fs.statSync(file).isDirectory()) folders.push(file);
-      else files.push(file);
+      else files.push(file.substring(root.length+1));
     }
   }
   return files;
@@ -54,7 +54,7 @@ function getFontName(filepath){
   return pieces.join(".");
 }
 function getAssetsByType(assets,type){
-  return assets.filter(x => mime.lookup(x).split("/")[0]==type);
+  return assets.map(x => [x,mime.lookup(x)]).filter(x => typeof(x[1])=="string" && x[1].split("/")[0]==type).map(x => x[0]);
 }
 
 // Command handling

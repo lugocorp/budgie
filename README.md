@@ -12,7 +12,7 @@ A simple HTML5 game engine for simple arcade-style games. Inspired in part by Re
 - [x] Figure out audio assets
 - [x] Add key code constants in the keys manager
 - [x] Clean up/standardize browser-side API
-- [ ] Add to browser-side API as needed
+- [x] Add to browser-side API as needed
 - [ ] Finalize a cool name + branding
 - [ ] Create reference website on separate branch
 - [ ] Launch version 1.0
