@@ -16,10 +16,10 @@ function error(msg){
 
 // Default files
 function getDefaultConfig(){
-  return "{\n\t\"name\":\"Arcade\",\n\t\"latency\":20,\n\t\"viewport\":{\n\t\t\"width\":1500,\n\t\t\"height\":1000\n\t}\n}\n";
+  return "{\n\t\"name\":\"Budgie\",\n\t\"latency\":20,\n\t\"viewport\":{\n\t\t\"width\":1500,\n\t\t\"height\":1000\n\t}\n}\n";
 }
 function getDefaultIndex(){
-  return "// Welcome to Arcade!\n// Brought to you by LugoCorp\n\narcade.onstart=function(){}\n\narcade.onclick=function(){}\n\narcade.onkeyevent=function(evt){}\n\narcade.onframe=function(delta){}\n";
+  return "// Welcome to Budgie!\n// Brought to you by LugoCorp\n\nbudgie.onstart=function(){}\n\nbudgie.onclick=function(){}\n\nbudgie.onkeyevent=function(evt){}\n\nbudgie.onframe=function(delta){}\n";
 }
 
 // Build helpers
@@ -59,6 +59,7 @@ function getAssetsByType(assets,type){
 
 // Command handling
 if(cmd=="init"){
+  if(process.argv.length<4) error("No project name provided");
   project=process.argv[3];
   if(fs.existsSync(project)) error("That project already exists");
 
@@ -68,7 +69,7 @@ if(cmd=="init"){
   fs.mkdirSync(`${project}/src`);
 
   // Create default files
-  fs.writeFileSync(`${project}/arcade.json`,getDefaultConfig());
+  fs.writeFileSync(`${project}/budgie.json`,getDefaultConfig());
   fs.writeFileSync(`${project}/src/index.js`,getDefaultIndex());
 
   // Copy the lib directory
@@ -81,25 +82,25 @@ if(cmd=="init"){
   var config;
   var data;
   try{
-    data=fs.readFileSync(`${project}/arcade.json`);
+    data=fs.readFileSync(`${project}/budgie.json`);
     config=JSON.parse(data.toString());
   }catch(err){
-    error("Missing or invalid arcade.json file");
+    error("Missing or invalid budgie.json file");
   }
   let key=getKey(config.name);
   let assets=recursiveList(`${project}/assets`);
   let libs=recursiveList(`${project}/lib`).map(x => `<script src="lib/${x}"></script>`).join("");
   let user=recursiveList(`${project}/src`).map(x => `<script src="src/${x}"></script>`).join("");
-  let images=getAssetsByType(assets,"image").map(x => `arcade.assets._registerImage("assets/${x}");`).join("");
-  let audios=getAssetsByType(assets,"audio").map(x => `arcade.assets._registerAudio("assets/${x}");`).join("");
+  let images=getAssetsByType(assets,"image").map(x => `budgie.assets._registerImage("assets/${x}");`).join("");
+  let audios=getAssetsByType(assets,"audio").map(x => `budgie.assets._registerAudio("assets/${x}");`).join("");
   let fonts=getAssetsByType(assets,"font").map(x => `@font-face{font-family:"${getFontName(x)}";src:url("assets/${x}");}`).join("");
-  let html=`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${config.name}</title>${libs}</head><body onkeyup="arcade._onkeyup(event)" onkeydown="arcade._onkeydown(event)" onresize="arcade._onresize()"><canvas id="canvas" width="500" height="300" onmousemove="arcade._onmousemove(event)" onmouseup="arcade._onclick(event)"></canvas></body><style>body{background-color:black;padding:0;margin:0;}canvas{transform:translate(-50%,-50%);background-color:white;position:absolute;left:50%;top:50%;}${fonts}</style><script>let arcade=new Arcade("${key}",${config.latency},${config.viewport.width},${config.viewport.height});</script>${user}<script>${images}${audios}arcade.assets._check();</script></html>`;
+  let html=`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${config.name}</title>${libs}</head><body onkeyup="budgie._onkeyup(event)" onkeydown="budgie._onkeydown(event)" onresize="budgie._onresize()"><canvas id="canvas" width="500" height="300" onmousemove="budgie._onmousemove(event)" onmouseup="budgie._onclick(event)"></canvas></body><style>body{background-color:black;padding:0;margin:0;}canvas{transform:translate(-50%,-50%);background-color:white;position:absolute;left:50%;top:50%;}${fonts}</style><script>let budgie=new Budgie("${key}",${config.latency},${config.viewport.width},${config.viewport.height});</script>${user}<script>${images}${audios}budgie.assets._check();</script></html>`;
   fs.writeFileSync(`${project}/index.html`,html);
 }else if(cmd=="open"){
   let file=path.resolve(`${project}/index.html`);
   open(`file://${file}`);
 }else{
-  console.log("Usage: arcade command");
+  console.log("Usage: budgie <command>");
   console.log("  init    Initializes a new project");
   console.log("  build   Builds your project into an HTML5 game");
   console.log("  open    Opens your project in the browser");

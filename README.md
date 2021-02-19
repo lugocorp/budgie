@@ -1,18 +1,28 @@
-# Arcade
-A simple HTML5 game engine for simple arcade-style games. Inspired in part by Regular Show's "Just Set up the Chairs" episode. Work in progress.
+<img src="budgie.svg" height="300px"/>
 
-# Todo
-- [x] Create simple browser-side JS library for sprites, image assets, event handling
-- [x] Add JSON loading/storage manager
-- [x] Add in errors for browser-side library
-- [x] Wrap geometry drawing HTML5 canvas API
-- [x] Extrapolate into a simple CLI
-- [x] Error handling in CLI + tighten experience
-- [x] Build a font and text rendering system
-- [x] Figure out audio assets
-- [x] Add key code constants in the keys manager
-- [x] Clean up/standardize browser-side API
-- [x] Add to browser-side API as needed
-- [ ] Finalize a cool name + branding
-- [ ] Create reference website on separate branch
-- [ ] Launch version 1.0
+# Budgie
+A lightweight HTML5 game engine for arcade-style games in the browser. Provides a simple API to manage sprites and visual/audial assets. Brought to you by [LugoCorp](http://lugocorp.net).
+
+## Usage
+#### Installation
+```
+# This installs the budgie command on your machine
+npm install -g budgiejs
+```
+
+#### Create a project
+```
+# This is how you start a new Budgie.js project
+budgie init <name>
+```
+
+#### Build your game
+```
+# This will convert your project code into a website
+budgie build
+```
+
+## Links
+- [Devlog series](https://www.youtube.com/watch?v=pwEzWqjwZ_0) on the development of this project
+- [GitHub](https://github.com/lugocorp/budgie) repository
+- [NPM](https://www.npmjs.com/package/budgiejs) page

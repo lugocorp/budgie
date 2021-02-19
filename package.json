@@ -1,10 +1,13 @@
 {
-  "name": "arcade",
+  "name": "budgiejs",
   "version": "1.0.0",
-  "description": "A simple HTML5 game engine for simple arcade-style games. Brought to you by LugoCorp.",
+  "description": "A lightweight HTML5 game engine for simple arcade-style games. Brought to you by LugoCorp.",
   "main": "index.js",
   "author": "Alex Lugo",
   "license": "ISC",
+  "bin":{
+    "budgie":"./index.js"
+  },
   "dependencies": {
     "mime-types": "^2.1.27",
     "open": "^7.3.0"
