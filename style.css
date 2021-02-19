@@ -1,0 +1,74 @@
+
+/* General */
+:root{
+  --white:#ffffff;
+  --black:#333333;
+  --green:#91e667;
+}
+body{
+  font-family:"NotoSansJP";
+  color:var(--black);
+  font-size:18px;
+  padding:0;
+  margin:0;
+}
+a{
+  text-decoration:none;
+  color:var(--green);
+}
+a:hover{
+  text-decoration:underline;
+}
+@font-face{
+  src:url("res/NotoSansJP-Regular.otf");
+  font-family:"NotoSansJP";
+}
+@font-face{
+  src:url("res/NotoSansJP-Bold.otf");
+  font-family:"NotoSansJP";
+  font-weight:bold;
+}
+
+/* Splash */
+#splash{
+  background-color:var(--green);
+  padding:15px 0;
+}
+#splash p{
+  color:var(--white);
+  text-align:center;
+  font-weight:bold;
+  font-size:40px;
+  margin:0;
+}
+#splash > div{
+  grid-template-columns:40% 60%;
+  padding:15px 0;
+  display:grid;
+}
+#splash > div div{
+  text-align:center;
+}
+#splash img{
+  height:315px;
+}
+
+/* Footer */
+#footer{
+  background-color:var(--black);
+  color:var(--white);
+  text-align:center;
+  padding:15px 0;
+}
+#footer > div{
+  grid-template-columns:33% 34% 33%;
+  display:grid;
+}
+#footer > div a{
+  color:var(--white);
+  display:block;
+  margin:15px 0;
+}
+#footer p{
+  font-weight:bold;
+}
