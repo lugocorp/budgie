@@ -5,13 +5,18 @@
   --black:#333333;
   --green:#91e667;
   --dark:#6bb347;
+  --gray:#f0f0f0;
 }
 body{
   font-family:"NotoSansJP";
   color:var(--black);
   font-size:18px;
+  line-height:28px;
   padding:0;
   margin:0;
+}
+hr{
+  margin:50px 12%;
 }
 a{
   text-decoration:none;
@@ -22,10 +27,24 @@ a:hover{
 }
 .section{
   background-color:var(--white);
-  padding:25px 8%;
+  padding:25px 12%;
+}
+.section a{
+  transition:color 0.1s ease;
+  text-decoration:underline;
+  color:var(--black);
+}
+.section a:hover{
+  color:var(--dark);
 }
 .green{
   background-color:var(--green);
+}
+.code{
+  background-color:var(--gray);
+  border-radius:10px;
+  padding:5px 10px;
+  margin:0 25px;
 }
 @font-face{
   src:url("res/NotoSansJP-Regular.otf");
@@ -36,11 +55,17 @@ a:hover{
   font-family:"NotoSansJP";
   font-weight:bold;
 }
+@font-face{
+  src:url("res/NotoSansJP-Thin.otf");
+  font-family:"NotoSansJP";
+  font-style:italic;
+}
 
 /* Content */
-.link-button{
+.section a.link-button{
   transition:background-color 0.1s ease;
   background-color:var(--green);
+  text-decoration:none;
   border-radius:25px;
   color:var(--white);
   text-align:center;
@@ -50,7 +75,7 @@ a:hover{
   padding:10px;
   margin:15px;
 }
-.link-button:hover{
+.section a.link-button:hover{
   background-color:var(--dark);
   text-decoration:none;
 }
@@ -85,6 +110,7 @@ a:hover{
   color:var(--white);
   text-align:center;
   font-weight:bold;
+  line-height:60px;
   font-size:40px;
   margin:0;
 }
@@ -98,6 +124,11 @@ a:hover{
 }
 #splash img{
   height:315px;
+}
+#splash h1{
+  color:var(--white);
+  text-align:center;
+  margin:35px 0;
 }
 
 /* About */
@@ -131,7 +162,7 @@ a:hover{
   margin:0;
 }
 #features p{
-  margin:0;
+  margin:15px 0 0 0;
 }
 
 /* Contact */

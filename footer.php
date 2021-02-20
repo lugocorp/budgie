@@ -3,7 +3,7 @@
     <div>
       <a href="https://github.com/lugocorp/budgie">GitHub</a>
       <a href="https://www.npmjs.com/package/budgiejs">NPM</a>
-      <a href="">Install</a>
+      <a href="<?php echo($DIR);?>/tool#install">Install</a>
     </div>
     <div>
       <a href="<?php echo($DIR);?>/library">Library</a>

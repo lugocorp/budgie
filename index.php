@@ -3,8 +3,8 @@
 <head>
   <?php $DIR=".";?>
   <meta charset="utf-8"/>
-  <title>Budgie.js</title>
   <link rel="stylesheet" href="./style.css"/>
+  <title>Budgie</title>
 </head>
 <body>
   <?php include("./navbar.php");?>
@@ -26,14 +26,14 @@
   <div id="about" class="section">
     <h1>About Budgie</h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <p>
-      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+      Budgie is a lightweight game framework for HTML5 that allows you to create simple arcade-style games for the browser.
+      It provides a command line tool to create new projects as well as a browser-side JavaScript library for game development.
+      The API is designed to be easy to use and provide quick access to your game's assets.
+      Budgie provides hooks for common events such as key presses and mouse clicks, which you can tap into to craft your game's controls.
     </p>
     <div class="links">
       <a class="link-button" href="https://github.com/lugocorp/budgie">GitHub</a>
-      <a class="link-button" href="">Install</a>
+      <a class="link-button" href="<?php echo($DIR);?>/tool#install">Install</a>
     </div>
   </div>
 
@@ -43,20 +43,37 @@
     <div class="left">
       <img src="res/budgie-icon.svg"/>
       <div>
-        <h2>Title</h2>
+        <h2>Sprite system</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Budgie is a sprite-based game engine.
+          Event handling and drawing are implemented in classes representing game objects.
+          Budgie automatically connects game events such a redrawing or mouse clicks to all your objects on the screen.
+          This allows you to focus on developing your game entities with object-oriented programming.
         </p>
       </div>
     </div>
     <div class="right">
       <div>
-        <h2>Title</h2>
+        <h2>Asset loading</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Budgie provides a loading screen so that your game doesn't experience any pop-in due to unloaded assets.
+          There's no need for developers to manually inject assets into their project - they are automatically added at compile time.
+          Graphics, audio, and fonts can all be accessed using the engine's streamlined API.
         </p>
       </div>
       <img src="res/budgie-icon.svg"/>
+    </div>
+    <div class="left">
+      <img src="res/budgie-icon.svg"/>
+      <div>
+        <h2>Browser-based deployment</h2>
+        <p>
+          Budgie games are made for browsers.
+          Compile JavaScript code into an arcade game that can run on any HTML5-compliant browser!
+          HTML5 canvas and asset APIs are abstracted for more streamlined access within the engine.
+          It even automatically handles window resizing and scaling your graphical assets, with optional anti-aliasing.
+        </p>
+      </div>
     </div>
   </div>
 
@@ -64,7 +81,8 @@
   <div id="contact" class="section">
     <h1>Contact</h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Contact us if you would like to report a bug or request a feature.
+      We'd love to work with our community to constantly improve our products!
     </p>
     <div class="links">
       <a href="mailto:alugocp@aim.com"><img src="res/email.svg"/></a>
@@ -75,7 +93,8 @@
   <div id="donate" class="section green">
     <h1>Donate</h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Budgie is completely free to use and open source.
+      If you really enjoy using the framework and have a few dollars lying around, you can donate them here.
     </p>
     <div class="links">
       <a class="link-button" href="">Donate</a>
