@@ -4,6 +4,7 @@
   --white:#ffffff;
   --black:#333333;
   --green:#91e667;
+  --dark:#6bb347;
 }
 body{
   font-family:"NotoSansJP";
@@ -19,6 +20,13 @@ a{
 a:hover{
   text-decoration:underline;
 }
+.section{
+  background-color:var(--white);
+  padding:25px 8%;
+}
+.green{
+  background-color:var(--green);
+}
 @font-face{
   src:url("res/NotoSansJP-Regular.otf");
   font-family:"NotoSansJP";
@@ -27,6 +35,45 @@ a:hover{
   src:url("res/NotoSansJP-Bold.otf");
   font-family:"NotoSansJP";
   font-weight:bold;
+}
+
+/* Content */
+.link-button{
+  transition:background-color 0.1s ease;
+  background-color:var(--green);
+  border-radius:25px;
+  color:var(--white);
+  text-align:center;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:30px;
+  padding:10px;
+  margin:15px;
+}
+.link-button:hover{
+  background-color:var(--dark);
+  text-decoration:none;
+}
+
+/* Navbar */
+#navbar{
+  padding:15px 2%;
+}
+#navbar span{
+  margin-right:10px;
+  font-weight:bold;
+  font-size:35px;
+}
+#navbar a{
+  transition:color 0.1s ease;
+  color:var(--black);
+  cursor:pointer;
+  font-size:25px;
+  margin:0 10px;
+}
+#navbar a:hover{
+  text-decoration:none;
+  color:var(--dark);
 }
 
 /* Splash */
@@ -51,6 +98,59 @@ a:hover{
 }
 #splash img{
   height:315px;
+}
+
+/* About */
+#about .links{
+  grid-template-columns:50% 50%;
+  display:grid;
+}
+
+/* Features */
+#features .left{
+  grid-template-columns:35% 65%;
+  display:grid;
+}
+#features .right{
+  grid-template-columns:65% 35%;
+  text-align:right;
+  display:grid;
+}
+#features img{
+  border:solid 5px var(--white);
+  width:calc(100% - 10px);
+  border-radius:25px;
+}
+#features > div{
+  margin:75px 0;
+}
+#features > div div{
+  padding:0 25px;
+}
+#features h2{
+  margin:0;
+}
+#features p{
+  margin:0;
+}
+
+/* Contact */
+#contact .links{
+  text-align:center;
+}
+#contact .links img{
+  width:100px;
+  margin:25px 0;
+}
+
+/* Donate */
+#donate .links{
+  text-align:center;
+}
+#donate .link-button{
+  border:solid 5px var(--white);
+  display:inline-block;
+  width:50%;
 }
 
 /* Footer */

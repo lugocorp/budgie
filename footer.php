@@ -1,19 +1,19 @@
 <div id="footer">
   <div>
     <div>
-      <a href="">GitHub</a>
-      <a href="">NPM</a>
+      <a href="https://github.com/lugocorp/budgie">GitHub</a>
+      <a href="https://www.npmjs.com/package/budgiejs">NPM</a>
       <a href="">Install</a>
     </div>
     <div>
-      <a href="">Library</a>
-      <a href="">Tool</a>
-      <a href="">Examples</a>
+      <a href="<?php echo($DIR);?>/library">Library</a>
+      <a href="<?php echo($DIR);?>/tool">Tool</a>
+      <a href="<?php echo($DIR);?>/examples">Examples</a>
     </div>
     <div>
-      <a href="">About</a>
-      <a href="">Donate</a>
-      <a href="">Contact</a>
+      <a href="<?php echo($DIR);?>/">About</a>
+      <a href="<?php echo($DIR);?>/#donate">Donate</a>
+      <a href="<?php echo($DIR);?>/#contact">Contact</a>
     </div>
   </div>
   <p>Brought to you by <a href="http://lugocorp.net">LugoCorp</a></p>
