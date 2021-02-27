@@ -46,6 +46,11 @@ a:hover{
   padding:5px 10px;
   margin:0 25px;
 }
+@media only screen and (max-width:800px){
+  .section{
+    padding:25px 10px;
+  }
+}
 @font-face{
   src:url("res/NotoSansJP-Regular.otf");
   font-family:"NotoSansJP";
@@ -133,11 +138,26 @@ a:hover{
   text-align:center;
   margin:35px 0;
 }
+#splash iframe{
+  width:560px;
+  height:315px;
+  max-width:calc(100% - 30px);
+}
+@media only screen and (max-width:800px){
+  #splash > div{
+    grid-template-columns:100%;
+  }
+}
 
 /* About */
 #about .links{
   grid-template-columns:50% 50%;
   display:grid;
+}
+@media only screen and (max-width:800px){
+  #about .links{
+    grid-template-columns:100%;
+  }
 }
 
 /* Features */
@@ -166,6 +186,17 @@ a:hover{
 }
 #features p{
   margin:15px 0 0 0;
+}
+@media only screen and (max-width:800px){
+  #features .right{
+    grid-template-columns:100%;
+  }
+  #features .left{
+    grid-template-columns:100%;
+  }
+  #features img{
+    display:none;
+  }
 }
 
 /* Contact */
@@ -212,6 +243,11 @@ a:hover{
 }
 .args{
   font-weight:normal;
+}
+@media only screen and (max-width:800px){
+  .shortcuts{
+    grid-template-columns:50% 50%;
+  }
 }
 
 /* Footer */
