@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -47,17 +47,8 @@
      inkscape:window-x="61"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg929" />
-  <path
-     d="M 0,0 H 24 V 24 H 0 Z"
-     fill="none"
-     id="path925" />
-  <circle
-     style="fill:#91e667;fill-opacity:1;stroke-width:6.11028;stroke-linecap:round;stroke-linejoin:round"
-     id="path937"
-     cx="25"
-     cy="25"
-     r="25" />
+     inkscape:current-layer="svg929"
+     inkscape:document-rotation="0" />
   <path
      d="M 38.365591,11.5 H 11.373955 C 9.51828,11.5 8.01687,13.01828 8.01687,14.873955 L 8,35.117682 c 0,1.855675 1.51828,3.373955 3.373955,3.373955 h 26.991636 c 1.855675,0 3.373956,-1.51828 3.373956,-3.373955 V 14.873955 C 41.739547,13.01828 40.221266,11.5 38.365591,11.5 Z m 0,23.617682 H 11.373955 V 18.247909 l 13.495818,8.434887 13.495818,-8.434887 z M 24.869773,23.308841 11.373955,14.873955 h 26.991636 z"
      id="path927"

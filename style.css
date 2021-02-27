@@ -123,6 +123,9 @@ a:hover{
   text-align:center;
 }
 #splash img{
+  background-color:var(--white);
+  border-radius:15px;
+  padding:5px 15px;
   height:315px;
 }
 #splash h1{
@@ -170,8 +173,14 @@ a:hover{
   text-align:center;
 }
 #contact .links img{
-  width:100px;
+  transition:background-color 0.1s ease;
+  background-color:var(--green);
+  border-radius:50%;
   margin:25px 0;
+  width:100px;
+}
+#contact .links img:hover{
+  background-color:var(--dark);
 }
 
 /* Donate */
@@ -182,6 +191,27 @@ a:hover{
   border:solid 5px var(--white);
   display:inline-block;
   width:50%;
+}
+
+/* Library */
+.shortcuts{
+  grid-template-columns:33% 34% 33%;
+  text-align:center;
+  display:grid;
+}
+.shortcuts a{
+  margin:15px 0;
+}
+.field{
+  padding-left:2%;
+  margin:35px 0;
+}
+.token{
+  color:var(--dark);
+  font-weight:normal;
+}
+.args{
+  font-weight:normal;
 }
 
 /* Footer */
