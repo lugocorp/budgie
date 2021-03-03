@@ -450,6 +450,45 @@
         <li>y - the y offset to set</li>
       </ul>
     </div>
+
+    <div class="field">
+      <h2><span class="token">function</span> drawLine<span class="args">(x1,y1,x2,y2)</span></h2>
+      <p>
+        Draws a line on this sprite.
+        Takes the following arguments:
+      </p>
+      <ul>
+        <li>x1 - the x component of the starting point</li>
+        <li>y1 - the y component of the starting point</li>
+        <li>x2 - the x component of the ending point</li>
+        <li>y2 - the y component of the ending point</li>
+      </ul>
+    </div>
+    <div class="field">
+      <h2><span class="token">function</span> drawShape<span class="args">(...)</span></h2>
+      <p>
+        Draws a polygon on this sprite.
+        This function take two arguments (x and y) for every point in your desired shape.
+        You must provide at least three points (six arguments) or this function will throw an error.
+        Takes the following arguments:
+      </p>
+      <ul>
+        <li>x1 - the x component of the 1st point</li>
+        <li>y1 - the y component of the 1st point</li>
+        <li>x2 - the x component of the 2nd point</li>
+        <li>y2 - the y component of the 2nd point</li>
+        <p>...</p>
+        <li>xn - the x component of the nth point</li>
+        <li>yn - the y component of the nth point</li>
+      </ul>
+    </div>
+    <div class="field">
+      <h2><span class="token">function</span> getContext<span class="args">()</span></h2>
+      <p>
+        Returns the HTML5 2D canvas context object associated with this sprite.
+        You can extend Budgie's capabilities by accessing the underlying HTML5 context directly.
+      </p>
+    </div>
   </div>
 
   <hr>
