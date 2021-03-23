@@ -6,10 +6,17 @@
   <link rel="stylesheet" href="./style.css"/>
   <link rel="stylesheet" href="../codemirror/lib/codemirror.css">
   <link rel="stylesheet" href="../codemirror/theme/neo.css" />
-  <link rel="stylesheet" href="../codemirror/theme/elegant.css" />
-  <script src="../codemirror/mode/javascript/javascript.js"></script>
   <script src="../codemirror/lib/codemirror.js"></script>
+  <script src="../codemirror/mode/javascript/javascript.js"></script>
   <title>Budgie - examples</title>
+  <script>
+    function editor(div,value){
+      CodeMirror(
+        document.getElementById(div),
+        {value,mode:"javascript",theme:"neo",lineNumbers:true,readOnly:true}
+      );
+    }
+  </script>
 </head>
 <body>
   <?php include("../navbar.php");?>
@@ -38,14 +45,7 @@
     <h1>Simple Enemy Sprite</h1>
     <div id="enemy-sprite"></div>
     <script>
-      var editor = CodeMirror(document.getElementById("enemy-sprite"), {
-      value : 
-        " let enemy=new Sprite();\n enemy.render=function(){ \n\t enemy.renderRect(0,0,50,75)",
-      mode : "javascript",
-      theme: "elegant",
-      lineNumbers: true,
-      readOnly:true,
-      });
+      editor("enemy-sprite","\nlet enemy = new Sprite();\nenemy.render = function() {\n\tenemy.renderRect(0,0,50,75);\n}\n");
     </script>
   </div>
 
@@ -56,14 +56,7 @@
     <h1>Sprite Subclass</h1>
     <div id="sprite"></div>
     <script>
-      var editor = CodeMirror(document.getElementById("sprite"), {
-      value : 
-        " class Enemy extends Sprite{ \n render(){ \n\t this.drawRect(0,0,50,75); \n\t} \n php}",
-      mode : "javascript",
-      theme: "elegant",
-      lineNumbers: true,
-      readOnly:true,
-      });
+      editor("sprite","\nclass Enemy extends Sprite {\n\trender() {\n\t\tthis.drawRect(0,0,50,75);\n\t}\n}\n");
     </script>
   </div>
 

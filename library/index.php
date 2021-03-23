@@ -4,12 +4,19 @@
   <?php $DIR="..";?>
   <meta charset="utf-8"/>
   <link rel="stylesheet" href="./style.css"/>
-  <link rel="stylesheet" href="../codemirror/lib/codemirror.css">
-  <link rel="stylesheet" href="../codemirror/theme/neo.css" />
-  <link rel="stylesheet" href="../codemirror/theme/elegant.css" />
-  <script src="../codemirror/mode/javascript/javascript.js"></script>
+  <link rel="stylesheet" href="../codemirror/lib/codemirror.css"/>
+  <link rel="stylesheet" href="../codemirror/theme/neo.css"/>
   <script src="../codemirror/lib/codemirror.js"></script>
+  <script src="../codemirror/mode/javascript/javascript.js"></script>
   <title>Budgie - library</title>
+  <script>
+    function editor(div,value){
+      CodeMirror(
+        document.getElementById(div),
+        {value,mode:"javascript",theme:"neo",lineNumbers:true,readOnly:true}
+      );
+    }
+  </script>
 </head>
 <body>
   <?php include("../navbar.php");?>
@@ -79,34 +86,20 @@
         You can do this like so:
         <div id="onstart"></div>
         <script>
-          var editor = CodeMirror(document.getElementById("onstart"), {
-          value : 
-          " budgie.onstart = function() { \n\t // Your code here \n\t}",
-          mode : "javascript",
-          theme: "elegant",
-          lineNumbers: true,
-          readOnly:true,
-          });
+          editor("onstart","\nbudgie.onstart = function() {\n\t// Your code here\n}\n")
         </script>
       </p>
     </div>
-    
+
     <div class="field">
       <h2><span class="token">function</span> onclick<span class="args">()</span></h2>
       <p>
         This function gets called whenever the player clicks with the mouse.
         It is a hook that you'll have to implement yourself.
         You can do this like so:
-        <div id="onclick"></div>
+        <div id="budgie-onclick"></div>
         <script>
-          var editor = CodeMirror(document.getElementById("onclick"), {
-          value : 
-          " budgie.onclick=function(){ \n\t // Your code here \n\t }",
-          mode : "javascript",
-          theme: "elegant",
-          lineNumbers: true,
-          readOnly:true,
-          });
+          editor("budgie-onclick","\nbudgie.onclick = function() {\n\t// Your code here\n}\n");
         </script>
       </p>
     </div>
@@ -118,14 +111,7 @@
         You can do this like so:
         <div id="onkeyevent"></div>
         <script>
-          var editor = CodeMirror(document.getElementById("onkeyevent"), {
-          value : 
-          " budgie.onkeyevent=function(e){ \n\t // Your code here \n\t }",
-          mode : "javascript",
-          theme: "elegant",
-          lineNumbers: true,
-          readOnly:true,
-          });
+          editor("onkeyevent","\nbudgie.onkeyevent = function(e) {\n\t// Your code here\n}\n");
         </script>
         <br>
         It also takes the following parameters:
@@ -142,14 +128,7 @@
         You can do this like so:
         <div id="onframe"></div>
         <script>
-          var editor = CodeMirror(document.getElementById("onframe"), {
-          value : 
-          " budgie.onframe=function(){ \n\t // Your code here \n\t }",
-          mode : "javascript",
-          theme: "elegant",
-          lineNumbers: true,
-          readOnly:true,
-          });
+          editor("onframe","budgie.onframe = function() {\n\t// Your code here\n}\n");
         </script>
         <br>
         It also takes the following parameters:
@@ -268,20 +247,9 @@
       <p>
         This hook is called every time the sprite is supposed to redraw itself onto the canvas.
         You can implement it like so:
-        <div id="render">
-          this.render=function(){<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;// Your code here<br>
-          }
-        </div>
+        <div id="render"></div>
         <script>
-          var editor = CodeMirror(document.getElementById("render"), {
-          value : 
-          " this.render=function(){ \n\t // Your code here \n\t }",
-          mode : "javascript",
-          theme: "elegant",
-          lineNumbers: true,
-          readOnly:true,
-          });
+          editor("render","\nthis.render = function() {\n\t// Your code here\n}\n");
         </script>
       </p>
     </div>
@@ -386,16 +354,9 @@
       <p>
         This function is called every frame.
         You can implement it like so:
-        <div id="delta"></div>
+        <div id="update"></div>
         <script>
-          var editor = CodeMirror(document.getElementById("delta"), {
-          value : 
-          " this.update=function(delta){ \n\t // Your code here \n\t}",
-          mode : "javascript",
-          theme: "elegant",
-          lineNumbers: true,
-          readOnly:true,
-          });
+          editor("update","\nthis.update = function(delta) {\n\t// Your code here\n}\n");
         </script>
         <br>
         This function takes the following arguments:
@@ -409,16 +370,9 @@
       <p>
         This function is called whenever this sprite is clicked on.
         You can implement it like so:
-        <div id="thisclick"></div>
+        <div id="onclick"></div>
         <script>
-          var editor = CodeMirror(document.getElementById("thisclick"), {
-          value : 
-          " this.onclick=function() { \n\t // Your code here \n\t}",
-          mode : "javascript",
-          theme: "elegant",
-          lineNumbers: true,
-          readOnly:true,
-          });
+          editor("onclick","\nthis.onclick = function() {\n\t// Your code here\n}\n");
         </script>
       </p>
     </div>
