@@ -3,7 +3,7 @@
 <head>
   <?php $DIR="..";?>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" href="./style.css"/>
+  <link rel="stylesheet" href="../style.css"/>
   <link rel="stylesheet" href="../codemirror/lib/codemirror.css">
   <link rel="stylesheet" href="../codemirror/theme/neo.css" />
   <script src="../codemirror/lib/codemirror.js"></script>
