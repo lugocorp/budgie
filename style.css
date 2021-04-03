@@ -1,0 +1,272 @@
+
+/* General */
+:root{
+  --white:#ffffff;
+  --black:#333333;
+  --green:#91e667;
+  --dark:#6bb347;
+  --gray:#f0f0f0;
+}
+body{
+  font-family:"NotoSansJP";
+  color:var(--black);
+  font-size:18px;
+  line-height:28px;
+  padding:0;
+  margin:0;
+}
+hr{
+  margin:50px 12%;
+}
+a{
+  text-decoration:none;
+  color:var(--green);
+}
+a:hover{
+  text-decoration:underline;
+}
+.section{
+  background-color:var(--white);
+  padding:25px 12%;
+}
+.section a{
+  transition:color 0.1s ease;
+  text-decoration:underline;
+  color:var(--black);
+}
+.section a:hover{
+  color:var(--dark);
+}
+.green{
+  background-color:var(--green);
+}
+.code{
+  background-color:var(--gray);
+  border-radius:10px;
+  padding:5px 10px;
+  margin:0 25px;
+}
+@media only screen and (max-width:800px){
+  .section{
+    padding:25px 10px;
+  }
+}
+@font-face{
+  src:url("res/NotoSansJP-Regular.otf");
+  font-family:"NotoSansJP";
+}
+@font-face{
+  src:url("res/NotoSansJP-Bold.otf");
+  font-family:"NotoSansJP";
+  font-weight:bold;
+}
+@font-face{
+  src:url("res/NotoSansJP-Thin.otf");
+  font-family:"NotoSansJP";
+  font-style:italic;
+}
+
+/* Content */
+.section a.link-button{
+  transition:background-color 0.1s ease;
+  background-color:var(--green);
+  text-decoration:none;
+  border-radius:25px;
+  color:var(--white);
+  text-align:center;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:30px;
+  padding:10px;
+  margin:15px;
+}
+.section a.link-button:hover{
+  background-color:var(--dark);
+  text-decoration:none;
+}
+
+/* Navbar */
+#navbar{
+  padding:15px 2%;
+}
+#navbar span{
+  margin-right:10px;
+  font-weight:bold;
+  font-size:35px;
+}
+#navbar a{
+  transition:color 0.1s ease;
+  color:var(--black);
+  cursor:pointer;
+  font-size:25px;
+  margin:0 10px;
+}
+#navbar a:hover{
+  text-decoration:none;
+  color:var(--dark);
+}
+
+/* Splash */
+#splash{
+  background-color:var(--green);
+  padding:15px 0;
+}
+#splash p{
+  color:var(--white);
+  text-align:center;
+  font-weight:bold;
+  line-height:60px;
+  font-size:40px;
+  margin:0;
+}
+#splash > div{
+  grid-template-columns:40% 60%;
+  padding:15px 0;
+  display:grid;
+}
+#splash > div div{
+  text-align:center;
+}
+#splash img{
+  background-color:var(--white);
+  border-radius:15px;
+  padding:5px 15px;
+  height:315px;
+}
+#splash h1{
+  color:var(--white);
+  text-align:center;
+  margin:35px 0;
+}
+#splash iframe{
+  width:560px;
+  height:315px;
+  max-width:calc(100% - 30px);
+}
+@media only screen and (max-width:800px){
+  #splash > div{
+    grid-template-columns:100%;
+  }
+}
+
+/* About */
+#about .links{
+  grid-template-columns:50% 50%;
+  display:grid;
+}
+@media only screen and (max-width:800px){
+  #about .links{
+    grid-template-columns:100%;
+  }
+}
+
+/* Features */
+#features .left{
+  grid-template-columns:35% 65%;
+  display:grid;
+}
+#features .right{
+  grid-template-columns:65% 35%;
+  text-align:right;
+  display:grid;
+}
+#features img{
+  border:solid 5px var(--white);
+  background-color:#f2f1f0;
+  width:calc(100% - 10px);
+  border-radius:25px;
+}
+#features > div{
+  margin:75px 0;
+}
+#features > div div{
+  padding:0 25px;
+}
+#features h2{
+  margin:0;
+}
+#features p{
+  margin:15px 0 0 0;
+}
+@media only screen and (max-width:800px){
+  #features .right{
+    grid-template-columns:100%;
+  }
+  #features .left{
+    grid-template-columns:100%;
+  }
+  #features img{
+    display:none;
+  }
+}
+
+/* Contact */
+#contact .links{
+  text-align:center;
+}
+#contact .links img{
+  transition:background-color 0.1s ease;
+  background-color:var(--green);
+  border-radius:50%;
+  margin:25px 0;
+  width:100px;
+}
+#contact .links img:hover{
+  background-color:var(--dark);
+}
+
+/* Donate */
+#donate .links{
+  text-align:center;
+}
+#donate .link-button{
+  border:solid 5px var(--white);
+  display:inline-block;
+  width:50%;
+}
+
+/* Library */
+.shortcuts{
+  grid-template-columns:33% 34% 33%;
+  text-align:center;
+  display:grid;
+}
+.shortcuts a{
+  margin:15px 0;
+}
+.field{
+  padding-left:2%;
+  margin:35px 0;
+}
+.token{
+  color:var(--dark);
+  font-weight:normal;
+}
+.args{
+  font-weight:normal;
+}
+@media only screen and (max-width:800px){
+  .shortcuts{
+    grid-template-columns:50% 50%;
+  }
+}
+
+/* Footer */
+#footer{
+  background-color:var(--black);
+  color:var(--white);
+  text-align:center;
+  padding:15px 0;
+}
+#footer > div{
+  grid-template-columns:33% 34% 33%;
+  display:grid;
+}
+#footer > div a{
+  color:var(--white);
+  display:block;
+  margin:15px 0;
+}
+#footer p{
+  font-weight:bold;
+}
