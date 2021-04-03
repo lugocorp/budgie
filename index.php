@@ -41,7 +41,7 @@
   <div id="features" class="section green">
     <h1>Features</h1>
     <div class="left">
-      <img src="res/budgie-icon.svg"/>
+      <img src="res/sprites.png"/>
       <div>
         <h2>Sprite system</h2>
         <p>
@@ -61,10 +61,10 @@
           Graphics, audio, and fonts can all be accessed using the engine's streamlined API.
         </p>
       </div>
-      <img src="res/budgie-icon.svg"/>
+      <img src="res/folder.png"/>
     </div>
     <div class="left">
-      <img src="res/budgie-icon.svg"/>
+      <img src="res/html5.png"/>
       <div>
         <h2>Browser-based deployment</h2>
         <p>

@@ -172,6 +172,7 @@ a:hover{
 }
 #features img{
   border:solid 5px var(--white);
+  background-color:#f2f1f0;
   width:calc(100% - 10px);
   border-radius:25px;
 }
