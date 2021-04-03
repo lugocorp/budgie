@@ -45,7 +45,8 @@
     <p>
       <ul>
         <li>init <i>name</i> - Create a new project called <i>name</i></li>
-        <li>build - Builds the project as a website</li>
+        <li>package - Builds the project as a website for production</li>
+        <li>build - Builds the project as a website for testing</li>
         <li>open - Opens a project in your default browser</li>
       </ul>
     </p>
