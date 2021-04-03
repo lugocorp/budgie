@@ -5,8 +5,8 @@
   "main": "index.js",
   "author": "Alex Lugo",
   "license": "ISC",
-  "bin":{
-    "budgie":"./index.js"
+  "bin": {
+    "budgie": "./index.js"
   },
   "dependencies": {
     "mime-types": "^2.1.27",

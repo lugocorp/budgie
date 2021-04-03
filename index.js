@@ -3,14 +3,17 @@ const path=require("path");
 const open=require("open");
 const fs=require("fs");
 let cmd=process.argv[2];
+let source=__dirname;
 let project=".";
-let source=".";
 
 // Throw an error
 function error(msg){
-  process.stderr.write("Error: ");
+  process.stderr.write("\u001b[1m\u001b[31mError\u001b[0m ");
   process.stderr.write(msg);
   process.stderr.write("\n");
+  for(var a=1;a<arguments.length;a++){
+    console.log(arguments[a]);
+  }
   process.exit(1);
 }
 
@@ -59,7 +62,7 @@ function getAssetsByType(assets,type){
 
 // Command handling
 if(cmd=="init"){
-  if(process.argv.length<4) error("No project name provided");
+  if(process.argv.length<4) error("No project name provided","Try this:","    budgie init <name>");
   project=process.argv[3];
   if(fs.existsSync(project)) error("That project already exists");
 
@@ -71,13 +74,6 @@ if(cmd=="init"){
   // Create default files
   fs.writeFileSync(`${project}/budgie.json`,getDefaultConfig());
   fs.writeFileSync(`${project}/src/index.js`,getDefaultIndex());
-
-  // Copy the lib directory
-  fs.mkdirSync(`${project}/lib`);
-  let lst=fs.readdirSync(`${source}/lib`);
-  for(var a=0;a<lst.length;a++){
-    fs.copyFileSync(`${source}/lib/${lst[a]}`,`${project}/lib/${lst[a]}`);
-  }
 }else if(cmd=="build"){
   var config;
   var data;
@@ -89,7 +85,7 @@ if(cmd=="init"){
   }
   let key=getKey(config.name);
   let assets=recursiveList(`${project}/assets`);
-  let libs=recursiveList(`${project}/lib`).map(x => `<script src="lib/${x}"></script>`).join("");
+  let libs=recursiveList(`${source}/lib`).map(x => `<script src="${source}/lib/${x}"></script>`).join("");
   let user=recursiveList(`${project}/src`).map(x => `<script src="src/${x}"></script>`).join("");
   let images=getAssetsByType(assets,"image").map(x => `budgie.assets._registerImage("assets/${x}");`).join("");
   let audios=getAssetsByType(assets,"audio").map(x => `budgie.assets._registerAudio("assets/${x}");`).join("");
@@ -98,7 +94,11 @@ if(cmd=="init"){
   fs.writeFileSync(`${project}/index.html`,html);
 }else if(cmd=="open"){
   let file=path.resolve(`${project}/index.html`);
-  open(`file://${file}`);
+  if(fs.existsSync(file)){
+    open(`file://${file}`);
+  }else{
+    error("Cannot find project's index.html file","Try this:","    budgie build","and then try again");
+  }
 }else{
   console.log("Usage: budgie <command>");
   console.log("  init    Initializes a new project");
