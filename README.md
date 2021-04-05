@@ -1,4 +1,5 @@
-<img src="budgie.svg" height="300px"/>
+
+![Budgie logo](./budgie.svg)
 
 # Budgie
 A lightweight HTML5 game engine for arcade-style games in the browser.

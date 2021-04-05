@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 const mime=require("mime-types");
 const path=require("path");
 const open=require("open");
