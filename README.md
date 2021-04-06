@@ -17,6 +17,7 @@ npm install -g budgiejs
 ```
 # This is how you start a new Budgie.js project
 budgie init <name>
+cd <name>
 ```
 
 #### Build your game
