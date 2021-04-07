@@ -31,6 +31,9 @@ cd <name>
 ```
 # This will convert your project code into a website
 budgie build
+
+# This will fix a bug that can sometimes occur
+budgie package
 ```
 
 #### Open in the browser
