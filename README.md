@@ -32,7 +32,7 @@ cd <name>
 # This will convert your project code into a website
 budgie build
 
-# This will fix a bug that can sometimes occur
+# This will fix a bug that can sometimes happen
 budgie package
 ```
 
