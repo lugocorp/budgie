@@ -7,12 +7,6 @@ Provides a simple API to manage sprites and visual/audial assets.
 Brought to you by [LugoCorp](http://lugocorp.net).
 
 ## Usage
-#### Download
-```
-# This downloads the Github repository
-git clone https://github.com/lugocorp/budgie
-cd budgie
-```
 
 #### Installation
 ```

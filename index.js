@@ -102,7 +102,7 @@ else if(cmd=="init"){
   fs.writeFileSync(`${project}/budgie.json`,getDefaultConfig());
   fs.writeFileSync(`${project}/src/index.js`,getDefaultIndex());
 }
-else if(cmd=="build"){
+/*else if(cmd=="build"){
   let config=getConfig();
   let key=getKey(config.name);
   let assets=recursiveList(`${project}/assets`);
@@ -110,8 +110,8 @@ else if(cmd=="build"){
   let user=recursiveList(`${project}/src`).map(x => `<script src="src/${x}"></script>`).join("");
   let html=getIndexFile(key,config,libs,user,assets);
   fs.writeFileSync(`${project}/index.html`,html);
-}
-else if(cmd=="package"){
+}*/
+else if(cmd=="build"){
   let config=getConfig();
   let key=getKey(config.name);
   let assets=recursiveList(`${project}/assets`);
@@ -133,7 +133,6 @@ else if(cmd=="package"){
 else{
   console.log("Usage: budgie <command>");
   console.log("  init      Initializes a new project");
-  console.log("  package   Builds your project into an HTML5 game for production");
-  console.log("  build     Builds your project into an HTML5 game for testing");
+  console.log("  build     Builds your project into an HTML5 game");
   console.log("  open      Opens your project in the browser");
 }
